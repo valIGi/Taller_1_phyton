@@ -1,0 +1,112 @@
+print("Hola")
+print("Ingrese el nuemro del ejercicio que desee (1,2,3,4,5)")
+operacion = input()
+
+match operacion:
+
+    case '1':
+        # ejercicio 1: divición
+        print("ingrese el divisor")
+        divisor = int(input())
+        print("ingrese el dividendo")
+        dividendo = int(input())
+        residuo = divisor%dividendo
+        resultado = divisor/dividendo
+
+        if residuo == 0:
+            print("la division es exacta")
+            print("el cociente es: " + str(resultado))
+            print("el residuo es : " + str(residuo))
+        else:
+            print("la division no es exacta")
+            print("el cociente: " + str(resultado))
+            print("el residuo es: " + str(residuo))
+
+    case '2':
+
+        # Ejercicio 2:fecha de nacimiento
+        from time import localtime
+        print("Ingrese su fecha de nacimiento:")
+        print("Día:")
+        dia1 = int(input())
+        print("Mes:")
+        mes1 = int(input())
+        print("Año:")
+        anno1 = int(input())
+
+        t = localtime()
+        dia = t.tm_mday
+        mes = t.tm_mon
+        anno = t.tm_year
+
+        
+        edad = anno - anno1 - 1 
+        
+
+        if mes > mes1 or (mes == mes1 and dia >= dia1):
+            edad += 1
+
+        print("Su edad es de:", edad, "años")
+            
+    case '3':
+        # Ejercicio 3:
+        print("Ingresa el valor de a:")
+        a = int(input())
+        print("Ingresa el valor de b:")
+        b = int(input())
+        print("Ingresa el valor de c:")
+        c = int(input())
+
+        if a + b > c and b + c > a and a + c > b:
+            if a == b == c:
+                print("Su triángulo es equilátero.")
+            elif a == b or b == c or a == c:
+                print("Su triángulo es isósceles.")
+            else:
+                print("Su triángulo es escaleno.")
+        else:
+            print("No es un triángulo válido")
+
+    case '4':
+        # Ejercicio 4:
+        print("ingresa altura en metros")
+        alt = float(input())
+        print("ingresa peso en kg")
+        peso = float(input())
+        print("ingresa edad")
+        edad = int(input())
+        imc = peso/alt**2
+        if imc < 22.0 and edad<45:
+            print("el riesgo es bajo su IMC: " + str(imc))
+        elif imc < 22 and edad>=45:
+            print("el riesgo es medio su IMC: " +  str(imc))
+        elif imc >= 22 and edad<45:
+            print("el riesgo es medio su IMC: " +  str(imc))
+        else :
+            print("el riesgo es alto su IMC: " + str(imc))
+
+    case '5' :
+        # Ejercicio 5: set de tennis 
+        juegosA = int(input("juegos ganados por A "))
+        juegosB = int(input("juegos ganados por B "))
+        if juegosA>7 or juegosB>7:
+            print("resultado no valido")
+        elif juegosA>=7 and juegosB>=7:
+            print("resultado no valido")
+        elif juegosA>6 and juegosB<5 or juegosB>6 and juegosA<5:
+            print("resultado no valido")
+        elif juegosB>= 6 and juegosA<5:
+            print("Jugador B Gana ")
+        elif juegosA >6 and juegosB==6:
+            print("Jugador A gana ")
+        elif juegosB >6 and juegosA==6:
+            print("Jugador B gana ")
+        elif juegosA >=6 and juegosB <5:
+            print("Jugador A Gano")
+
+        else:
+            print("Aun no termina, JUEGUE!!!")
+
+
+    case _ :
+        print("La operación es inválida")
